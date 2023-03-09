@@ -59,6 +59,7 @@ app.use(cors());
 app.get("/" , (req,res)=>{
   res.setHeader("Access-Control-Allow-Credentials","true");
   res.send("api is running");
+});
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
 
 
