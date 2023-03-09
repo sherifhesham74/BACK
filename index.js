@@ -34,9 +34,9 @@ app.use("/maintains", maintainRouter);
 app.use("/accessShops", accessShopRouter);
 app.use("/accessories", accessRouter);
 app.use("/cart", cartRouter);
-app.get("/", (req, res) => {
-  res.json({ mssg: "Welcom to the app" });
-});
+// app.get("/", (req, res) => {
+//   res.json({ mssg: "Welcom to the app" });
+// });
 
 //database connection
 mongoose.connect("mongodb://127.0.0.1:27017/gpproject", (err) => {
@@ -56,7 +56,9 @@ const cors = require("cors");
 // };
 
 app.use(cors());
-
+app.get("/" , (req,res)=>{
+  res.setHeader("Access-Control-Allow-Credentials","true");
+  res.send("api is running");
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
 
 
