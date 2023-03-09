@@ -39,7 +39,7 @@ app.use("/cart", cartRouter);
 // });
 
 //database connection
-mongoose.connect("mongodb://127.0.0.1:27017/gpproject", (err) => {
+mongoose.connect("mongodb://ac-xvjtcbx-shard-00-00.vpe4skm.mongodb.net:27017/gpproject", (err) => {
   if (!err) return console.log("DB Connected");
   console.log(err);
 });
