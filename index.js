@@ -39,7 +39,7 @@ app.get("/", (req, res) => {
 });
 
 //database connection
-mongoose.connect("mongodb://ac-xvjtcbx-shard-00-00.vpe4skm.mongodb.net:27017/gpproject", (err) => {
+mongoose.connect("mongodb://sheka:sh01068293444@ac-xvjtcbx-shard-00-00.vpe4skm.mongodb.net:27017,ac-xvjtcbx-shard-00-01.vpe4skm.mongodb.net:27017,ac-xvjtcbx-shard-00-02.vpe4skm.mongodb.net:27017/?ssl=true&replicaSet=atlas-j9s119-shard-0&authSource=admin&retryWrites=true&w=majority", (err) => {
   if (!err) return console.log("DB Connected");
   console.log(err);
 });
