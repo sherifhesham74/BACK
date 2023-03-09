@@ -34,9 +34,9 @@ app.use("/maintains", maintainRouter);
 app.use("/accessShops", accessShopRouter);
 app.use("/accessories", accessRouter);
 app.use("/cart", cartRouter);
-// app.get("/", (req, res) => {
-//   res.json({ mssg: "Welcom to the app" });
-// });
+app.get("/", (req, res) => {
+  res.json({ mssg: "Welcom to the app" });
+});
 
 //database connection
 mongoose.connect("mongodb://ac-xvjtcbx-shard-00-00.vpe4skm.mongodb.net:27017/gpproject", (err) => {
@@ -55,11 +55,13 @@ const cors = require("cors");
 //   optionsSuccessStatus: 200,
 // };
 
-app.use(cors());
-app.get("/" , (req,res)=>{
-  res.setHeader("Access-Control-Allow-Credentials","true");
-  res.send("api is running");
-});
+app.use(cors({ origin:["http://localhost:3000" , "https://kalaks.onrender.com"], 
+             })
+       );
+// app.get("/" , (req,res)=>{
+//   res.setHeader("Access-Control-Allow-Credentials","true");
+//   res.send("api is running");
+// });
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
 
 
