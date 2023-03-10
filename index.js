@@ -55,9 +55,7 @@ const cors = require("cors");
 //   optionsSuccessStatus: 200,
 // };
 
-app.use(cors({ origin:["http://localhost:3000" , "https://kalaks.onrender.com"], 
-             })
-       );
+
 // app.get("/" , (req,res)=>{
 //   res.setHeader("Access-Control-Allow-Credentials","true");
 //   res.send("api is running");
