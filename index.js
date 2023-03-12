@@ -15,7 +15,7 @@ const schoolsRouter = require("./routes/schools");
 const maintainRouter = require("./routes/maintain");
 const accessShopRouter = require("./routes/accessories_shop");
 const accessRouter = require("./routes/accessories");
-const cartRouter = require("./routes/cart");
+// const cartRouter = require("./routes/cart");
 
 //middleware
 app.use(morgan("tiny"));
@@ -33,7 +33,7 @@ app.use("/schools", schoolsRouter);
 app.use("/maintains", maintainRouter);
 app.use("/accessShops", accessShopRouter);
 app.use("/accessories", accessRouter);
-app.use("/cart", cartRouter);
+// app.use("/cart", cartRouter);
 app.get("/", (req, res) => {
   res.json({ mssg: "Welcom to the app" });
 });
