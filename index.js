@@ -34,6 +34,7 @@ app.use("/schools", schoolsRouter);
 app.use("/maintains", maintainRouter);
 app.use("/accessShops", accessShopRouter);
 app.use("/accessories", accessRouter);
+app.use(cors());
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
