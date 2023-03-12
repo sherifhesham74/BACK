@@ -65,9 +65,9 @@ mongoose.connect("mongodb://sheka:sh01068293444@ac-xvjtcbx-shard-00-00.vpe4skm.m
 });
 
 //listen for requsts
-app.listen(process.env.PORT, () => {
-  console.log(`listening on port`, process.env.PORT);
-});
+// app.listen(process.env.PORT, () => {
+//   console.log(`listening on port`, process.env.PORT);
+// });
 
 
 // const corsOptions = {
