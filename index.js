@@ -23,7 +23,7 @@ app.use(morgan("tiny"));
 app.use(express.json());
 app.use(cookieParser());
 app.use("/", express.static("images"));
-
+app.use(cors());
 //routes
 app.use("/users", usersRouter);
 app.use("/admins", adminRouter);
@@ -34,7 +34,7 @@ app.use("/schools", schoolsRouter);
 app.use("/maintains", maintainRouter);
 app.use("/accessShops", accessShopRouter);
 app.use("/accessories", accessRouter);
-app.use(cors());
+
 app.use(function(req, res, next) {
       // res.header("Access-Control-Allow-Origin", "*");
       const allowedOrigins = ['http://localhost:3000', 'http://kalaks.onrender.com', 'https://kalaks.onrender.com'];
