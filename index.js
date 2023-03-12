@@ -35,24 +35,36 @@ app.use("/maintains", maintainRouter);
 app.use("/accessShops", accessShopRouter);
 app.use("/accessories", accessRouter);
 app.use(cors());
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
+      // res.header("Access-Control-Allow-Origin", "*");
+      const allowedOrigins = ['http://localhost:3000', 'http://kalaks.onrender.com', 'https://kalaks.onrender.com'];
+      const origin = req.headers.origin;
+      if (allowedOrigins.includes(origin)) {
+           res.setHeader('Access-Control-Allow-Origin', origin);
+      }
+      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+      res.header("Access-Control-Allow-credentials", true);
+      res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, UPDATE");
+      next();
+    });
+// app.use(function (req, res, next) {
 
-    // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin: *');
+//     // Website you wish to allow to connect
+//     res.setHeader('Access-Control-Allow-Origin: *');
 
-    // Request methods you wish to allow
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+//     // Request methods you wish to allow
+//     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 
-    // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+//     // Request headers you wish to allow
+//     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
 
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
-    res.setHeader('Access-Control-Allow-Credentials', true);
+//     // Set to true if you need the website to include cookies in the requests sent
+//     // to the API (e.g. in case you use sessions)
+//     res.setHeader('Access-Control-Allow-Credentials', true);
 
-    // Pass to next layer of middleware
-    next();
-});
+//     // Pass to next layer of middleware
+//     next();
+// });
 // app.use("/cart", cartRouter);
 app.get("/", (req, res) => {
   res.json({ mssg: "Welcom to the app" });
@@ -65,9 +77,9 @@ mongoose.connect("mongodb://sheka:sh01068293444@ac-xvjtcbx-shard-00-00.vpe4skm.m
 });
 
 //listen for requsts
-// app.listen(process.env.PORT, () => {
-//   console.log(`listening on port`, process.env.PORT);
-// });
+app.listen(process.env.PORT, () => {
+  console.log(`listening on port`, process.env.PORT);
+});
 
 
 // const corsOptions = {
