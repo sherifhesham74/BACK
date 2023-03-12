@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 require("dotenv").config();
 //express app
 const app = express();
@@ -33,6 +34,7 @@ app.use("/schools", schoolsRouter);
 app.use("/maintains", maintainRouter);
 app.use("/accessShops", accessShopRouter);
 app.use("/accessories", accessRouter);
+app.use(cors({ origin : '*' }));
 // app.use("/cart", cartRouter);
 app.get("/", (req, res) => {
   res.json({ mssg: "Welcom to the app" });
@@ -49,13 +51,13 @@ app.listen(process.env.PORT, () => {
   console.log(`listening on port`, process.env.PORT);
 });
 
-const cors = require("cors");
+
 // const corsOptions = {
 //   origin: "http://localhost:3000",
 //   optionsSuccessStatus: 200,
 // };
 // Add headers before the routes are defined
-app.use(cors({ origin : '*' }));
+
 // app.use(function (req, res, next) {
 
 //     // Website you wish to allow to connect
